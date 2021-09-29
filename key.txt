@@ -1,0 +1,2 @@
+alias: key1
+password: alinaqi2000

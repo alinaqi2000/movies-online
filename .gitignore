@@ -11,7 +11,8 @@
 # next.js
 /.next/
 /out/
-
+/android/
+/_android/
 # production
 /build
 
