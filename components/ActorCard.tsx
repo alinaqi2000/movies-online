@@ -2,12 +2,10 @@ import { motion, useAnimation } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer';
 import styles from '../styles/Movie.module.scss';
-import useWindowDimensions from '../hooks/useWindowDimensions';
 import { Actor } from '../models/Actor';
 
 export default function ActorCard(actor: Actor) {
     const { ref, inView } = useInView();
-    const { height, width } = useWindowDimensions();
     const animation = useAnimation()
     const anim = { scale: 1, opacity: 1, transition: { duration: .5, type: "spring", bounce: 0.5 } }
     useEffect(() => {

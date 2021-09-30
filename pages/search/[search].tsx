@@ -48,8 +48,10 @@ function Search() {
             <SearchMovie value={searchedValue} />
             {loading ? <Searching /> : <>
                 <div className={styles.pageContent}>
-                    <MoviesList movies={movies} />
-                    <ActorsList actors={actors} />
+                    <div className={styles.content}>
+                        <MoviesList movies={movies} />
+                        <ActorsList actors={actors} />
+                    </div>
                 </div>
             </>}
 

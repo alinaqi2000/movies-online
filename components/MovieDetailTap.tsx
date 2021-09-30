@@ -10,7 +10,7 @@ import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
-export default function MovieDetail({ id, setSelect }: { id: string, setSelect: (str: string) => void }) {
+export default function MovieDetail({ id, setSelect, tapped }: { id: string, tapped: boolean, setSelect: (str: string) => void }) {
     const [film, setFilm] = useState<Film | null>(null)
     const [loading, setLoading] = useState(true)
     const [show, setShow] = useState(false)
@@ -23,7 +23,9 @@ export default function MovieDetail({ id, setSelect }: { id: string, setSelect: 
         hidden: { opacity: 1, y: height },
         exit: { opacity: 1, y: height },
     }
-
+    useEffect(() => {
+        setShow(true)
+    }, [tapped])
     useEffect(() => {
         if (id) {
             setShow(true)
@@ -136,9 +138,11 @@ export default function MovieDetail({ id, setSelect }: { id: string, setSelect: 
                                 </div>
                             </div>) :
                                 (
-                                    <div className={styles.noData}>
 
-                                        <h4>No data available</h4>
+                                    <div className={styles.noMovies}>
+                                        <motion.img src="../not-found.svg" />
+                                        <h4>No Ddata found</h4>
+
                                     </div>
                                 )
 

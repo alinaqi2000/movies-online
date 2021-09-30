@@ -11,6 +11,7 @@ interface Props extends Movie {
 export default function MovieCard(movie: Props) {
     const { ref, inView } = useInView();
     const { height, width } = useWindowDimensions();
+    const cardWidth = width * 0.4;
     const animation = useAnimation()
     const anim = { scale: 1, opacity: 1, transition: { duration: .5, type: "spring", bounce: 0.5 } }
     useEffect(() => {
@@ -27,10 +28,10 @@ export default function MovieCard(movie: Props) {
             className={styles.movieCard}
             whileTap={{ cursor: "grabbing" }}
             animate={animation}
-            style={{ width: width - 90, height: ((width - 90) * 1600) / 1080 }}
+            style={{ width: cardWidth, height: ((cardWidth) * 1600) / 1080 }}
         >
             <motion.figure>
-                <motion.div style={{ background: `url('${movie.image}')`, width: width - 90, height: ((width - 90) * 1600) / 1080 }} />
+                <motion.div style={{ background: `url('${movie.image}')`, width: cardWidth, height: ((cardWidth) * 1600) / 1080 }} />
             </motion.figure>
             <motion.h4>{movie.title}</motion.h4>
         </motion.div>

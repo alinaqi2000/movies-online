@@ -29,11 +29,12 @@ export default function SearchMovie({ value }: { value: string }) {
             Network.addListener('networkStatusChange', status => {
                 if (!cnt && status.connectionType !== 'none') {
                     toast.success("Back Online.", { closeButton: false, theme: "colored", position: "bottom-center", autoClose: 5000, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, });
+                    Network.removeAllListeners()
                 }
-                setConnected(connected);
+                setConnected(status.connected);
             });
         }
-        return await connected;
+        return connected;
     }
 
     const handleSubmit = async (e: any) => {

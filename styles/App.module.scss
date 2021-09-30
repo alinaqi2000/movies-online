@@ -2,6 +2,7 @@
     width: 100vw;
     height: 100vh;
     margin: auto;
+    overflow: auto;
 }
 
 .main {
@@ -27,6 +28,17 @@
             cursor: -webkit-grab;
             cursor: -moz-grab;
         }
+    }
+}
+
+.search {
+    width: calc(100% - 40vw);
+    height: 60vh;
+    padding: 0 20vw;
+    display: grid;
+    place-items: center;
+    img {
+        width: 100%;
     }
 }
 
@@ -64,6 +76,6 @@
 
 .pageContent {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 77px);
     padding: 15px 0px;
 }
